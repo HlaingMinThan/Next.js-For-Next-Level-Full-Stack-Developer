@@ -1,10 +1,11 @@
-import Hello from "./components/Hello"
+import Link from "next/link"
 
 function page() {
   console.log("what is this component ?")
   return (
     <div>
-      <Hello></Hello>
+      <div>Home page</div>
+      <Link href={"/dashboard/posts"}>see posts</Link>
     </div>
   )
 }

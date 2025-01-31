@@ -1,6 +1,6 @@
 function page() {
   return (
-    <div>contact</div>
+    <div>posts page</div>
   )
 }
 
