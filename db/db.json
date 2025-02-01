@@ -1,0 +1,25 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "Getting Started with Next.js",
+            "content": "Next.js is a powerful React framework that makes building full-stack web applications simple and efficient. It includes features like server-side rendering and static site generation out of the box.",
+            "author": "John Doe",
+            "date": "2024-01-15"
+        },
+        {
+            "id": 2,
+            "title": "Understanding React Hooks",
+            "content": "React Hooks are a game-changer in React development. They allow you to use state and other React features without writing a class component.",
+            "author": "Jane Smith",
+            "date": "2024-01-16"
+        },
+        {
+            "id": 3,
+            "title": "CSS-in-JS Solutions",
+            "content": "Modern web development often involves CSS-in-JS solutions. Let's explore popular options like styled-components and emotion.",
+            "author": "Mike Johnson",
+            "date": "2024-01-17"
+        }
+    ]
+}
