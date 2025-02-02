@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 async function page({params} : { params : { id : string}}) {
     const res = await fetch("http://localhost:3001/posts/"+params.id, {
@@ -6,6 +7,10 @@ async function page({params} : { params : { id : string}}) {
             revalidate : 60
         }
     });
+
+    if(!res.ok) {
+        notFound();
+      }
 
     const post = await res.json();
     
