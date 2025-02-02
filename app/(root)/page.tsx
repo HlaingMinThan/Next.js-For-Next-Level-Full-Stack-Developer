@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 async function page() {
@@ -12,10 +13,13 @@ console.log(posts)
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8">Blog Posts</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {posts.map((post: { id: number, title: string, content: string, author: string, date: string }) => (
+        {posts.map((post: { id: number, title: string, content: string, author: string, date: string ,image : string}) => (
           <Link key={post.id} href={'/posts/'+post.id}>
           <div  className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
             <div className="p-6">
+              <div className="w-full h-[200px] mb-5">
+                <Image src={post.image} alt="post image" width={100} height={100} quality={100} className="w-full h-full"/>
+              </div>
               <h2 className="text-xl font-semibold mb-2 text-gray-800">{post.title}</h2>
               <p className="text-gray-600 mb-4 line-clamp-3">{post.content}</p>
               <div className="flex justify-between items-center text-sm text-gray-500">
