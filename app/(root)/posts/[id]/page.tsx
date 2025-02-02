@@ -1,19 +1,24 @@
 import Image from "next/image";
-import { notFound } from "next/navigation";
 
-async function page({params} : { params : { id : string}}) {
-    const res = await fetch("http://localhost:3001/posts/"+params.id, {
+const getPostById = async (id : string) => {
+    const res = await fetch("http://localhost:3001/posts/"+id, {
         next :  {
             revalidate : 60
         }
     });
+    return res.json();
+}
 
-    if(!res.ok) {
-        notFound();
-      }
+export const generateMetadata = async ({params}: { params : { id : string}}) => {
+    const post = await getPostById(params.id)
+    return {
+        title : "Creative Coder | "+post.title,
+        description : "post detail for "+post.title
+    }
+}
 
-    const post = await res.json();
-    
+async function page({params} : { params : { id : string}}) {
+    const post = await getPostById(params.id)
     return (
         <div className="container mx-auto px-4 py-8 max-w-4xl">
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
